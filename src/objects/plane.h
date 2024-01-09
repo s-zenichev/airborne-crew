@@ -5,6 +5,8 @@
 #include <cmath>
 #include <SFML/Graphics.hpp>
 
+using namespace global_parameters;
+
 namespace objects {
 
 const sf::Vector2f PLANE_SIZE = { 50.f, 50.f };
@@ -29,6 +31,8 @@ public:
 
     float GetSpeed() const;
 
+    float GetAngleSpeed() const;
+
     bool GetToDraw() const;
 
     sf::Vector2f GetTargetPosition() const;
@@ -46,12 +50,12 @@ public:
     std::string latitude = "0°";
 
 private:
-    float angle_speed_ = 0.01f;
+    float angle_speed_ = ANGLE_SPEED_SLIDER_MINIMUM;
     float angle_ = 0.f;
     float target_angle_ = 0.f;
     bool tracking_target_ = false;
     sf::Sprite plane_;
-    float speed_ = 0.5f;
+    float speed_ = LINEAR_SPEED_SLIDER_MINIMUM;
     bool to_draw_ = false;
     sf::Vector2f target_position_ = { 0.f, 0.f };
 };

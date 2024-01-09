@@ -29,6 +29,7 @@ public:
     void UpdateStampLabels();
     void UpdatePlaneCoordsLabel();
     void UpdateCanvas();
+    static gui_wrapper::ValueSlider GetAngleSlider();
 
 private:
     sf::RenderWindow* window_;
@@ -41,7 +42,7 @@ private:
     sf::Texture map_texture_;
     sf::Sprite map_sprite_;
     gui_wrapper::FrameRateLabel frame_rate_label_;
-    gui_wrapper::CoordsLabel coords_label_;;
+    gui_wrapper::CoordsLabel coords_label_;
     gui_wrapper::TimeStamp time_label_;
     gui_wrapper::DateStamp date_label_;
     gui_wrapper::TextLabel longtitude_label_;

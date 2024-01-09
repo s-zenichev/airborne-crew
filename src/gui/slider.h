@@ -17,6 +17,8 @@ public:
 
     tgui::Slider::Ptr GetSlider() const;
 
+    void SetSliderValue(float value);
+
 private:
     tgui::Slider::Ptr slider_ = tgui::Slider::create();
     const tgui::Layout2d SLIDER_DEFAULT_SIZE = { 100.f, 12.f };

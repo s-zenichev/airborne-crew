@@ -1,5 +1,6 @@
 #include "event_handler.h"
 
+
 namespace event_handler {
 
 // Для статического поля обязательна предварительная инициализация
@@ -91,6 +92,7 @@ void EventHandler::changeSliderValue(gui_wrapper::TextLabel& slider_label, objec
     if (change_linear) {
         logger_->LogTrivial(boost::log::trivial::severity_level::info, "Plane linear speed has been set to " + std::to_string(value));
         plane.SetLinearSpeed(value);
+        if (plane.GetSpeed() > 10*plane.GetAngleSpeed())gui_wrapper::InterfaceBuilder::GetAngleSlider().setSliderValue(plane.GetSpeed()/10.f);
     }
     else {
         logger_->LogTrivial(boost::log::trivial::severity_level::info, "Plane angle speed has been set to " + std::to_string(value));
@@ -103,6 +105,7 @@ void EventHandler::changeSliderValue(gui_wrapper::TextLabel& slider_label, objec
 void EventHandler::SetLogger(utils::log_handler::LogHandler* logger) {
     logger_ = logger;
 }
+
 
 EventHandler::~EventHandler() {
     delete plane_texture_;

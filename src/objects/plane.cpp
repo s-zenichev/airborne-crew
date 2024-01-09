@@ -37,6 +37,10 @@ float Plane::GetSpeed() const {
     return speed_;
 }
 
+float Plane::GetAngleSpeed() const {
+    return angle_speed_;
+}
+
 bool Plane::GetToDraw() const {
     return to_draw_;
 }
@@ -83,7 +87,7 @@ void Plane::Control() {
             angle_ -= 2 * M_PI;
         }
 
-        if (angle_ - target_angle_ > global_parameters::PLANE_CRITICAL_ANGLE || angle_ - target_angle_ < -global_parameters::PLANE_CRITICAL_ANGLE){
+        if (angle_ - target_angle_ > 1.5*angle_speed_ || angle_ - target_angle_ < -1.5*angle_speed_){
             if ((target_angle_ - angle_ > 0 && target_angle_ - angle_ < M_PI) || (target_angle_ - angle_ < -M_PI )) {
                 angle_ += angle_speed_;
             }

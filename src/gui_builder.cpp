@@ -295,4 +295,9 @@ void InterfaceBuilder::UpdateCanvas() {
     canvas_.GetCanvas()->display();
 }
 
+
+gui_wrapper::ValueSlider InterfaceBuilder::GetAngleSlider(){
+    return angle_speed_slider_;
+}
+
 } // namespace gui_wrapper

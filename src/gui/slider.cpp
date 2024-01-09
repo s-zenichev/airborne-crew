@@ -16,4 +16,8 @@ tgui::Slider::Ptr ValueSlider::GetSlider() const {
     return slider_;
 }
 
+void ValueSlider::SetSliderValue(float value){
+    slider_->setValue(value);
+}
+
 } // namespace gui_wrapper
